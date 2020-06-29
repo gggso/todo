@@ -3,6 +3,7 @@ package router
 import (
 	"github.com/gogf/gf-demos/app/api/chat"
 	"github.com/gogf/gf-demos/app/api/curd"
+	"github.com/gogf/gf-demos/app/api/devices"
 	"github.com/gogf/gf-demos/app/api/user"
 	"github.com/gogf/gf-demos/app/service/middleware"
 	"github.com/gogf/gf/frame/g"
@@ -22,8 +23,10 @@ func init() {
 	s.Group("/", func(group *ghttp.RouterGroup) {
 		ctlChat := new(chat.Controller)
 		ctlUser := new(user.Controller)
+		ctlDevices := new(devices.Controller)
 		group.Middleware(middleware.CORS)
 		group.ALL("/chat", ctlChat)
+		group.ALL("/devices", ctlDevices)
 		group.ALL("/user", ctlUser)
 		group.ALL("/curd/:table", new(curd.Controller))
 		group.Group("/", func(group *ghttp.RouterGroup) {
