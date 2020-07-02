@@ -18,7 +18,7 @@ type InsertDevicesInput struct {
 	Sdk string
 	Brand string
 	Devices_id string
-	Iemi string
+	Imei string
 	Mac string
 	Df string
 	Uuid string `v:"required|length:36,36#uuid不能为空|uuid长度错误"`
@@ -46,6 +46,10 @@ func InsertDevices(data *InsertDevicesInput) error {
 }
 
 // 获取设备列表
-//func GetList() error {
-
-//}
+func GetList() []*devices.Entity {
+	list, err := devices.FindAll()
+	if err != nil {
+		return nil
+	}
+	return list
+}

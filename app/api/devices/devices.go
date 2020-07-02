@@ -37,6 +37,7 @@ func (c *Controller) Insert(r *ghttp.Request) {
 	}
 }
 
-//func (c *Controller) List(r *ghttp.Request) {
-//	response.JsonExit(r, 0, "", devices.IsSignedIn(r.Session))
-//}
+func (c *Controller) List(r *ghttp.Request) {
+	println(r.GetRequest())
+	response.JsonExit(r, 0, "", devices.GetList())
+}

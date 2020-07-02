@@ -81,7 +81,7 @@ func (c *Controller) One(r *ghttp.Request) {
 // @param   x_where  query string false "原始SQL条件语句(可直接提交主键数值)"
 // @param   x_order  query string false "排序语句, 例如: `id desc`"
 // @param   x_group  query string false "分组语句, 例如: `type`"
-// @param   x_page   query string false "分页语句(记录影响限制语句), 例如: `1,100`"
+// @param   1   query string false "分页语句(记录影响限制语句), 例如: `1,100`"
 // @router  /curd/{table}/all [GET]
 // @success 200 {object} response.JsonResponse "查询结果"
 func (c *Controller) All(r *ghttp.Request) {

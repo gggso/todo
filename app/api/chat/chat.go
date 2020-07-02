@@ -70,6 +70,7 @@ func (c *Controller) Index() {
 // @success 200 {string} string "执行成功后跳转到聊天室页面"
 func (c *Controller) SetName() {
 	name := c.Request.GetString("name")
+	fmt.Printf(name)
 	name = ghtml.Entities(name)
 	c.Session.Set("chat_name_temp", name)
 	if err := gvalid.Check(name, nameCheckRule, nameCheckMsg); err != nil {
